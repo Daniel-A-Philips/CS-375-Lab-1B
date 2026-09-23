@@ -39,8 +39,9 @@ function isLiteralObj(x) {
 function deepObjPrint(obj, indent="") {
     for (let pair of Object.entries(obj)) {
         if(isLiteralObj(pair[1])) {
-            console.log(indent + pair[0])
+            console.log(indent + pair[0] + ": {")
             deepObjPrint(pair[1], indent+"  ");
+            console.log(indent + "}")
 
         }
         else console.log(indent + pair[0] + ": " + pair[1])

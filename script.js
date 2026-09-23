@@ -36,14 +36,14 @@ function isLiteralObj(x) {
   return (!!x) && (x.constructor === Object);
 }
 
-function deepObjPrint(obj) {
+function deepObjPrint(obj, indent="") {
     for (let pair of Object.entries(obj)) {
         if(isLiteralObj(pair[1])) {
-            console.log(pair[0])
-            deepObjPrint(pair[1]);
+            console.log(indent + pair[0])
+            deepObjPrint(pair[1], indent+"  ");
 
         }
-        else console.log(pair[0] + ": " + pair[1])
+        else console.log(indent + pair[0] + ": " + pair[1])
         
     }
 }
@@ -59,4 +59,4 @@ let obj = {
     },
     c: "def",
 };
-//deepObjPrint(obj); // should print:
+deepObjPrint(obj); // should print:

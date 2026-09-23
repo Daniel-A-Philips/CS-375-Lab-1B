@@ -1,8 +1,10 @@
 function sumDiagonals (matrix, rindex, cindex) {
     let sum = 0;
     let distance = 1
-    for (let i = -1 * distance; i <= distance; i += 2) {
-            for (let j = -1 * distance; j <= distance; j += 2) {
+    for (let i = -1 * distance; i <= distance; i++) {
+            if(i == 0) continue;
+            for (let j = -1 * distance; j <= distance; j++) {
+                if(j == 0) continue;
                 if(rindex + i >= 0 && rindex + i < matrix.length && cindex + j >= 0 && cindex + j < matrix[0].length) {
                     sum += matrix[rindex + i][cindex + j];
                 }
@@ -12,7 +14,8 @@ function sumDiagonals (matrix, rindex, cindex) {
 }
 
 arr = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]];
-// console.log(sumDiagonals(arr, 0, 0));
+//console.log(sumDiagonals(arr, 1, 2));
+//console.log(sumDiagonals(arr, 0, 0));
 
 function copyInc(arr) {
     let newArr = [];
@@ -56,4 +59,4 @@ let obj = {
     },
     c: "def",
 };
-deepObjPrint(obj); // should print:
+//deepObjPrint(obj); // should print:
